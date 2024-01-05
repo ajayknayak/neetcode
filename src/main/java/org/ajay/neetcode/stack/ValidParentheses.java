@@ -44,6 +44,12 @@ public class ValidParentheses {
 		}
 		return isAllowed;
 	}
+	
+	/**
+	 * Leet Code : Accepted
+	 * @param s
+	 * @return
+	 */
 
 	public boolean isValid(String s) {
 		boolean isValid = true;

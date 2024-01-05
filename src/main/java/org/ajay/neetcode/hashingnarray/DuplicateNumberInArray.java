@@ -36,6 +36,12 @@ public class DuplicateNumberInArray {
 
 	private int MAX_NUM = 1000000000;
 	private int MIN_NUM = -1000000000;
+	
+	/**
+	 * Leet Code : Accepted
+	 * @param nums
+	 * @return
+	 */
 
 	public boolean containsDuplicate(int[] nums) {
 		boolean containsDuplicate = false;

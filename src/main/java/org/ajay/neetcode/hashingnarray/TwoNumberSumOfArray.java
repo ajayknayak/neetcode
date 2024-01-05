@@ -48,6 +48,12 @@ public class TwoNumberSumOfArray {
 	private int MAX_VALID = 1000000000;
 	private int MIN_VALID = -1000000000;
 
+	/**
+	 * This solution is to find the consecutive indices, 
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
 	public int[] twoNumSumWithConsicutiveIndice(int[] nums, int target) {
 
 		int[] indices = new int[2];
@@ -65,6 +71,15 @@ public class TwoNumberSumOfArray {
 		}
 		return indices;
 	}
+	
+	/**
+	 * This solution is to find the non-consecutive indices.
+	 * 
+	 * leetCode : Accepted
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
 
 	public int[] twoNumSumWithoutConsicutiveIndice(int[] nums, int target) {
 

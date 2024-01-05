@@ -34,6 +34,12 @@ import java.time.Year;
  *
  */
 
+/**
+ * Leet Code : Accepted
+ * @author ajnayak
+ *
+ */
+
 public class ValidAnagram {
 
 	public boolean isAnagram(String s, String t) {
