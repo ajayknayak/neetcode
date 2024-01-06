@@ -75,16 +75,20 @@ public class ValidAnagram {
 			System.out.println("Invalid Inout String Characters");
 			return isAnaGram;
 		}
-		
 
-		int[] mapArray = new int[125];
+		int[] mapArray = new int[26];
 		for (int i = 0; i < s.length(); i++) {
-			mapArray[s.charAt(i)] = mapArray[s.charAt(i)] +1;
+			mapArray[s.charAt(i)-'a'] = mapArray[s.charAt(i)-'a'] +1;
+			mapArray[t.charAt(i) - 'a'] = mapArray[t.charAt(i) - 'a'] -1;
 		}
 		
-		for (int i = 0; i < t.length(); i++) {
-			mapArray[t.charAt(i)] = mapArray[t.charAt(i)] -1;
-		}
+		//Below code is not required, as we already validated both string length, so at this point
+		// both string should be same length
+		
+			/*		
+  		for (int i = 0; i < t.length(); i++) {
+			mapArray[t.charAt(i) - 'a'] = mapArray[t.charAt(i) - 'a'] -1;
+		}*/
 		
 		for (int i = 0; i < mapArray.length; i++) {
 			if (mapArray[i] != 0) {
