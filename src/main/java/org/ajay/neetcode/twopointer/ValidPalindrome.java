@@ -41,21 +41,25 @@ public class ValidPalindrome {
 
 	public boolean isPalindrome(String s) {
 		
+		//Validate input string with null value.
 		if(null == s) {
 			System.out.println("Input string is false");
 			return false;
 		}
 		
+		//Validate input string with max and min length
 		if(1 > s.length() || s.length() > 200000) {
 			System.out.println("Input string is very small OR big" + s);
 			return false;
 		}
 		
-		s = s.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
+		//remove all non-alphanumeric chars from the input string and convert into all lower case.
+		s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 		if(s.isEmpty()) {
 			return true;
 		}
 		
+		//Iterate through each chars of the String and compare each chars from front rear end of the string.
 		char[] chArray = s.toCharArray();
 		for(int i=0, j=chArray.length-1; i<=j; i++, j--) {
 			if(chArray[i] != chArray[j]){
