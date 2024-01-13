@@ -94,6 +94,7 @@ public class EvaluateReversePolishNotation {
 			} else {
 				// If it is a Operand then push into the stack
 				int num = Integer.parseInt(iStr);
+				//Constraint validation
 				if (-200 > num || num > 200) {
 					System.out.println("Number out of range");
 					return 0;
