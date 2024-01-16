@@ -33,40 +33,109 @@ package org.ajay.neetcode.binarysearch;
  */
 
 public class BinarySearch {
-    public int search(int[] nums, int target) {
-        
-    	//Validate Input
-    	if(null == nums || 1 > nums.length || nums.length > 10000) {
-    		System.out.println("Invalid Input");
-    		return -1;
-    	}
-    	
-    	int length = nums.length;
-    	if(nums[0] <= -10000 || nums[length-1] >= 10000 || target <= -10000 || target >= 10000 ) {
-    		System.out.println("Invalid input");
-    		return -1;
-    	}
-    	
-    	return bsearch(nums, 0, length-1, target);
-    	
-    }
-
-	private int bsearch(int[] nums, int i, int j, int target) {
-		
-        if(i > j) {
+	
+	/**
+	 * this method search using recursion
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
+	public int search(int[] nums, int target) {
+		if (!validateInput(nums, target)) {
 			return -1;
 		}
-		int mid = i+ ((j-i)/2);
-		if(nums[mid] == target) {
-			return mid;
+		int length = nums.length;
+		//When array is sorted below validation will avoid all iteration
+		if(target < nums[0] || target > nums[length-1]) {
+			return -1;
 		}
+		return bsearch(nums, 0, length - 1, target);
+	}
 	
-		if(nums[mid] > target) {
-			j = mid-1;
+	/**
+	 * 
+	 * @param nums
+	 * @param i
+	 * @param j
+	 * @param target
+	 * @return
+	 */
+	private int bsearch(int[] nums, int i, int j, int target) {
+		if (i <= j) {
+			int mid = (i + j) / 2;
+			if (nums[mid] == target) {
+				return mid;
+			} else if (nums[mid] > target) {
+				return bsearch(nums, i, mid - 1, target);
+			} else {
+				return bsearch(nums, i + 1, j, target);
+			}
 		} else {
-			i = mid+1;
+			return -1;
+		}
+	}
+
+	/**
+	 * this method search with iteration
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
+	public int searchWithIteration(int[] nums, int target) {
+		if (!validateInput(nums, target)) {
+			return -1;
+		}
+		int length = nums.length;
+		//When array is sorted below validation will avoid all iteration
+		if(target < nums[0] || target > nums[length-1]) {
+			return -1;
+		}
+		return bsearchWithIteration(nums, 0, length - 1, target);
+	}
+
+	/**
+	 * 
+	 * @param nums
+	 * @param i
+	 * @param j
+	 * @param target
+	 * @return
+	 */
+	private int bsearchWithIteration(int[] nums, int i, int j, int target) {
+		while(i <= j) {
+			int mid = (j + i) / 2;
+			if(nums[mid] == target) {
+				return mid;
+			} else if (nums[mid] > target) {
+				j = mid - 1;
+			} else {
+				i = mid + 1;
+			}
 		}
 		
-		return bsearch(nums, i, j, target);
+		return -1;
 	}
+
+	/**
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
+	private boolean validateInput(int[] nums, int target) {
+		// Validate Input
+		if (null == nums || 1 > nums.length || nums.length > 10000) {
+			System.out.println("Invalid Input");
+			return false;
+		}
+
+		int length = nums.length;
+		if (nums[0] <= -10000 || nums[length - 1] >= 10000 || target <= -10000 || target >= 10000) {
+			System.out.println("Invalid input");
+			return false;
+		}
+
+		return true;
+	}
+
+
 }

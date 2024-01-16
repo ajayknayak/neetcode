@@ -24,7 +24,7 @@ public class BinarySearchTest {
 	@Test
 	public void testSearchWithValidInputAndTargetNotPresent_2() {
 		BinarySearch binarySearch = new BinarySearch();
-		int[] nums = { 2,5 };
+		int[] nums = { 2, 5 };
 		int target = 0;
 		assertEquals(-1, binarySearch.search(nums, target));
 	}
@@ -55,4 +55,58 @@ public class BinarySearchTest {
 		int target = 5000;
 		assertEquals(5000, binarySearch.search(nums, target));
 	}
+
+	// With Iteration
+
+	@Test
+	public void testsearchWithIterationWithValidInputAndTargetPresent() {
+		BinarySearch binarySearch = new BinarySearch();
+		int[] nums = { -1, 0, 3, 5, 9, 12 };
+		int target = 9;
+		assertEquals(4, binarySearch.searchWithIteration(nums, target));
+	}
+
+	@Test
+	public void testsearchWithIterationWithValidInputAndTargetNotPresent() {
+		BinarySearch binarySearch = new BinarySearch();
+		int[] nums = { -1, 0, 3, 5, 9, 12 };
+		int target = 7;
+		assertEquals(-1, binarySearch.searchWithIteration(nums, target));
+	}
+
+	@Test
+	public void testsearchWithIterationWithValidInputAndTargetNotPresent_2() {
+		BinarySearch binarySearch = new BinarySearch();
+		int[] nums = { 2, 5 };
+		int target = 0;
+		assertEquals(-1, binarySearch.searchWithIteration(nums, target));
+	}
+
+	@Test
+	public void testsearchWithIterationhWithInvalidInput() {
+		BinarySearch binarySearch = new BinarySearch();
+		int[] nums = null;
+		int target = 7;
+		assertEquals(-1, binarySearch.searchWithIteration(nums, target));
+	}
+
+	@Test
+	public void testsearchWithIterationWithOutOfRangeInput() {
+		BinarySearch binarySearch = new BinarySearch();
+		int[] nums = { -10001, -5000, 0, 5000, 10001 };
+		int target = 0;
+		assertEquals(-1, binarySearch.searchWithIteration(nums, target));
+	}
+
+	@Test
+	public void testsearchWithIterationWithLargeInputSize() {
+		BinarySearch binarySearch = new BinarySearch();
+		int[] nums = new int[10000];
+		for (int i = 0; i < 10000; i++) {
+			nums[i] = i;
+		}
+		int target = 5000;
+		assertEquals(5000, binarySearch.searchWithIteration(nums, target));
+	}
+
 }
