@@ -58,9 +58,4 @@ public class ListNode<T> {
 			return false;
 		return true;
 	}
-	public T getValue() {
-		return data;
-	}
-
-	
 }

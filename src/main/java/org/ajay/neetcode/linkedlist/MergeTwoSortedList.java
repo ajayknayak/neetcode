@@ -58,7 +58,7 @@ public class MergeTwoSortedList {
 			ListNode<Integer> tmpSortedList = sortedList;
 			while (null != list1 && null != list2) {
 
-				if (list1.getValue() <= list2.getValue()) {
+				if (list1.getData() <= list2.getData()) {
 					tmpSortedList.setNext(list1);
 					tmpSortedList = tmpSortedList.getNext();
 					list1 = list1.getNext();
@@ -97,7 +97,7 @@ public class MergeTwoSortedList {
 		} else if(null != list1 && null == list2){
 			return list1;
 		} else {
-			if (list1.getValue() <= list2.getValue()) {
+			if (list1.getData() <= list2.getData()) {
 				sortedList = list1;
 				sortedList.setNext(mergeTwoListsWithRecursion(list1.getNext(), list2));
 			} else {
