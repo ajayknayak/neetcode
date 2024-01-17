@@ -112,7 +112,7 @@ public class MergeTwoSortedListTest {
 	private void assertLinkedListEquals(ListNode<Integer> head, Integer... expectedValues) {
 		for (Integer expectedValue : expectedValues) {
 			assertNotNull(head);
-			assertEquals(expectedValue.intValue(), head.getValue().intValue());
+			assertEquals(expectedValue.intValue(), head.getData().intValue());
 			head = head.getNext();
 		}
 		assertNull(head);
